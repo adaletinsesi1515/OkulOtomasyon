@@ -76,12 +76,14 @@ namespace OkulOtomasyonWebForm
             this.barButtonItem14,
             this.barButtonItem15});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonControl1.MaxItemId = 16;
             this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.OptionsMenuMinWidth = 440;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbonControl1.Size = new System.Drawing.Size(1884, 169);
+            this.ribbonControl1.Size = new System.Drawing.Size(1902, 199);
             // 
             // barButtonItem1
             // 
@@ -97,8 +99,8 @@ namespace OkulOtomasyonWebForm
             // 
             this.btn_ogretmenform.Caption = "ÖĞRETMENLER";
             this.btn_ogretmenform.Id = 2;
-            this.btn_ogretmenform.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.btn_ogretmenform.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.btn_ogretmenform.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_ogretmenform.ImageOptions.Image")));
+            this.btn_ogretmenform.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_ogretmenform.ImageOptions.LargeImage")));
             this.btn_ogretmenform.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11F);
             this.btn_ogretmenform.ItemAppearance.Normal.Options.UseFont = true;
             this.btn_ogretmenform.Name = "btn_ogretmenform";
@@ -267,15 +269,17 @@ namespace OkulOtomasyonWebForm
             // 
             // FrmAnaModul
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1884, 861);
+            this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAnaModul";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OKUL PROJESİ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);
