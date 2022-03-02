@@ -14,7 +14,7 @@ namespace OkulOtomasyonWebForm
         {
             SqlConnection bgl = new SqlConnection(@"Data Source=ab01500-5000;Initial Catalog=dbo.OkulOtomasyon;Integrated Security=True");
             bgl.Open();
-            return bgl;            
+            return bgl;             
         }
     }
 }
