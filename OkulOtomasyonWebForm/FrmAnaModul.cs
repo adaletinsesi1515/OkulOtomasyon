@@ -21,13 +21,18 @@ namespace OkulOtomasyonWebForm
 
         private void btn_ogretmenform_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmOgretmenler == null)
+            if (frmOgretmenler == null || frmOgretmenler.IsDisposed)
             {
                 frmOgretmenler = new FrmOgretmenler();
                 frmOgretmenler.MdiParent = this;
                 frmOgretmenler.Show();
             }
             
+        }
+
+        private void FrmAnaModul_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
