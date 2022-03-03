@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace OkulOtomasyonWebForm
 {
@@ -57,6 +58,20 @@ namespace OkulOtomasyonWebForm
             baglan.baglanti().Close();
         }
       
+        void Temizle()
+        {
+            txt_id.Text = "";
+            txt_adi.Text = "";
+            txt_soyadi.Text = "";
+            msk_tckimlikno.Text = "";
+            msk_telefon.Text = "";
+            cmb_il.Text = "";
+            cmb_ilce.Text = "";
+            cmb_brans.Text = "";
+            txt_mail.Text = "";
+            rch_adres.Text = "";
+            pic_ogretmenresim.ImageLocation = "";
+        }
 
 
         //Form Ana Load metodu
@@ -86,7 +101,7 @@ namespace OkulOtomasyonWebForm
         //Kaydetme işlemi
         private void btn_kaydet_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("Insert into tbl_ogretmenler (OgrtAd, OgrtSoyad, OgrtTC, OgrtTel, OgrtIl, OgrtIlce, OgrtBrans, OgrtMail, OgrtAdres ) values(@p1,@p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9)", baglan.baglanti());
+            SqlCommand komut = new SqlCommand("Insert into tbl_ogretmenler (OgrtAd, OgrtSoyad, OgrtTC, OgrtTel, OgrtIl, OgrtIlce, OgrtBrans, OgrtMail, OgrtAdres, OgrtFoto ) values(@p1,@p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)", baglan.baglanti());
             komut.Parameters.AddWithValue("@p1", txt_adi.Text);
             komut.Parameters.AddWithValue("@p2", txt_soyadi.Text);
             komut.Parameters.AddWithValue("@p3", msk_tckimlikno.Text);
@@ -96,6 +111,7 @@ namespace OkulOtomasyonWebForm
             komut.Parameters.AddWithValue("@p7", cmb_brans.Text);
             komut.Parameters.AddWithValue("@p8", txt_mail.Text);
             komut.Parameters.AddWithValue("@p9", rch_adres.Text);
+            komut.Parameters.AddWithValue("@p10", Path.GetFileName(yeniyol));
             komut.ExecuteNonQuery();
             baglan.baglanti().Close();
             MessageBox.Show("Öğretmen eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -120,7 +136,63 @@ namespace OkulOtomasyonWebForm
                 cmb_brans.Text = dr["ogrtBrans"].ToString();
                 txt_mail.Text = dr["ogrtMail"].ToString();
                 rch_adres.Text = dr["ogrtAdres"].ToString();
+                yeniyol = "C:\\Users\\Memduh\\source\\repos\\OkulOtomasyon\\OkulOtomasyonWebForm" + "\\resimler\\" + dr["ogrtFoto"].ToString();
+                pic_ogretmenresim.ImageLocation = yeniyol;
             }
+        }
+
+        public string yeniyol;
+        
+
+
+        //Resim Kaydet butonuna tıklama işlemi 
+        private void Btn_resimsec_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dosya = new OpenFileDialog();
+            dosya.Filter = "Resim Dosyası | *.jpg; *.png; *.bmp | Tüm dosyalar | *.*";
+            dosya.ShowDialog();
+            string dosyayolu = dosya.FileName;
+            yeniyol = "C:\\Users\\Memduh\\source\\repos\\OkulOtomasyon\\OkulOtomasyonWebForm" + "\\resimler\\" + Guid.NewGuid().ToString() + ".jpg";
+            File.Copy(dosyayolu, yeniyol);
+            pic_ogretmenresim.ImageLocation = yeniyol;
+
+
+
+        }
+
+        private void btn_guncelle_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("Update Tbl_Ogretmenler set OgrtAd=@P1, OgrtSoyad=@P2, OgrtTC=@P3, OgrtTel=@P4, OgrtIl=@P5, OgrtIlce=@P6, OgrtBrans=@P7, OgrtMail=@P8, OgrtAdres=@P9, OgrtFoto=@P10 WHERE OgrtId=@p11",baglan.baglanti());
+            komut.Parameters.AddWithValue("@p1", txt_adi.Text);
+            komut.Parameters.AddWithValue("@p2", txt_soyadi.Text);
+            komut.Parameters.AddWithValue("@p3", msk_tckimlikno.Text);
+            komut.Parameters.AddWithValue("@p4", msk_telefon.Text);
+            komut.Parameters.AddWithValue("@p5", cmb_il.Text);
+            komut.Parameters.AddWithValue("@p6", cmb_ilce.Text);
+            komut.Parameters.AddWithValue("@p7", cmb_brans.Text);
+            komut.Parameters.AddWithValue("@p8", txt_mail.Text);
+            komut.Parameters.AddWithValue("@p9", rch_adres.Text);
+            komut.Parameters.AddWithValue("@p10", Path.GetFileName(yeniyol));
+            komut.Parameters.AddWithValue("@p11", txt_id.Text);
+            komut.ExecuteNonQuery();
+            baglan.baglanti().Close();
+            MessageBox.Show("Öğretmen güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Listele();
+        }
+
+        private void btn_sil_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("Delete from tbl_ogretmenler where ogrtId=@p1", baglan.baglanti());
+            komut.Parameters.AddWithValue("@p1", txt_id.Text);
+            komut.ExecuteNonQuery();
+            baglan.baglanti().Close();
+            MessageBox.Show("Öğretmen silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            Listele();
+        }
+
+        private void btn_temizle_Click(object sender, EventArgs e)
+        {
+            Temizle();
         }
     }
 }

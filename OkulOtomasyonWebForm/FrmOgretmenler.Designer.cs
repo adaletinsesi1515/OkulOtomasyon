@@ -156,10 +156,12 @@ namespace OkulOtomasyonWebForm
             // 
             // pic_ogretmenresim
             // 
+            this.pic_ogretmenresim.Image = ((System.Drawing.Image)(resources.GetObject("pic_ogretmenresim.Image")));
             this.pic_ogretmenresim.Location = new System.Drawing.Point(293, 17);
             this.pic_ogretmenresim.Margin = new System.Windows.Forms.Padding(4);
             this.pic_ogretmenresim.Name = "pic_ogretmenresim";
             this.pic_ogretmenresim.Size = new System.Drawing.Size(172, 161);
+            this.pic_ogretmenresim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_ogretmenresim.TabIndex = 17;
             this.pic_ogretmenresim.TabStop = false;
             // 
@@ -243,6 +245,7 @@ namespace OkulOtomasyonWebForm
             // 
             // txt_id
             // 
+            this.txt_id.Enabled = false;
             this.txt_id.Location = new System.Drawing.Point(161, 186);
             this.txt_id.Margin = new System.Windows.Forms.Padding(4);
             this.txt_id.Name = "txt_id";
@@ -376,6 +379,7 @@ namespace OkulOtomasyonWebForm
             this.btn_temizle.Size = new System.Drawing.Size(132, 62);
             this.btn_temizle.TabIndex = 18;
             this.btn_temizle.Text = "Temizle";
+            this.btn_temizle.Click += new System.EventHandler(this.btn_temizle_Click);
             // 
             // btn_guncelle
             // 
@@ -386,6 +390,7 @@ namespace OkulOtomasyonWebForm
             this.btn_guncelle.Size = new System.Drawing.Size(132, 62);
             this.btn_guncelle.TabIndex = 17;
             this.btn_guncelle.Text = "Güncelle";
+            this.btn_guncelle.Click += new System.EventHandler(this.btn_guncelle_Click);
             // 
             // btn_sil
             // 
@@ -396,6 +401,7 @@ namespace OkulOtomasyonWebForm
             this.btn_sil.Size = new System.Drawing.Size(132, 62);
             this.btn_sil.TabIndex = 16;
             this.btn_sil.Text = "Sil";
+            this.btn_sil.Click += new System.EventHandler(this.btn_sil_Click);
             // 
             // btn_kaydet
             // 
@@ -417,6 +423,7 @@ namespace OkulOtomasyonWebForm
             this.Btn_resimsec.Size = new System.Drawing.Size(132, 62);
             this.Btn_resimsec.TabIndex = 14;
             this.Btn_resimsec.Text = "Resim Seç";
+            this.Btn_resimsec.Click += new System.EventHandler(this.Btn_resimsec_Click);
             // 
             // rch_adres
             // 
@@ -469,7 +476,7 @@ namespace OkulOtomasyonWebForm
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmOgretmenler";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmOgretmenler";
+            this.Text = "Öğretmen Bilgileri";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmOgretmenler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

@@ -34,7 +34,7 @@ namespace OkulOtomasyonWebForm
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btn_ogretmenform = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_ogrenciform = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
@@ -62,7 +62,7 @@ namespace OkulOtomasyonWebForm
             this.ribbonControl1.SearchEditItem,
             this.barButtonItem1,
             this.btn_ogretmenform,
-            this.barButtonItem3,
+            this.btn_ogrenciform,
             this.barButtonItem4,
             this.barButtonItem5,
             this.barButtonItem6,
@@ -106,15 +106,16 @@ namespace OkulOtomasyonWebForm
             this.btn_ogretmenform.Name = "btn_ogretmenform";
             this.btn_ogretmenform.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_ogretmenform_ItemClick);
             // 
-            // barButtonItem3
+            // btn_ogrenciform
             // 
-            this.barButtonItem3.Caption = "ÖĞRENCİLER";
-            this.barButtonItem3.Id = 3;
-            this.barButtonItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.barButtonItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
-            this.barButtonItem3.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.barButtonItem3.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem3.Name = "barButtonItem3";
+            this.btn_ogrenciform.Caption = "ÖĞRENCİLER";
+            this.btn_ogrenciform.Id = 3;
+            this.btn_ogrenciform.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_ogrenciform.ImageOptions.Image")));
+            this.btn_ogrenciform.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_ogrenciform.ImageOptions.LargeImage")));
+            this.btn_ogrenciform.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.btn_ogrenciform.ItemAppearance.Normal.Options.UseFont = true;
+            this.btn_ogrenciform.Name = "btn_ogrenciform";
+            this.btn_ogrenciform.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_ogrenciform_ItemClick_1);
             // 
             // barButtonItem4
             // 
@@ -248,7 +249,7 @@ namespace OkulOtomasyonWebForm
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup1.ItemLinks.Add(this.btn_ogretmenform);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btn_ogrenciform);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem4);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem5);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem6);
@@ -295,7 +296,7 @@ namespace OkulOtomasyonWebForm
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem btn_ogretmenform;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem btn_ogrenciform;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
